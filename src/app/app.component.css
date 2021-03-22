@@ -1,0 +1,29 @@
+.headerstyle {
+  position: static;
+  position: -webkit-sticky; 
+  top: 0; 
+  width: 100%;
+  height: 55px;
+  background-color: darkturquoise;
+}
+
+.content{
+  padding: 3px 5px;
+  position: relative;
+  overflow-y: auto;
+}
+.footer {
+  position: static;
+  text-align: center;
+  bottom: 0;
+  width: 99%;
+  background-color: ghostwhite;
+}
+.nav-brand {
+  width: 215px;
+  text-align: center;
+}
+.button {
+padding-left: 540px;
+  text-align: center;
+}

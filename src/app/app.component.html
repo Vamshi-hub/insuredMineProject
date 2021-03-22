@@ -1,0 +1,65 @@
+<mat-toolbar class="headerstyle">
+  <div class="nav-brand">
+    <h1 style="font-size: 30px;color: white;font-family: emoji;"><strong>Indian HeadLines</strong></h1>
+</div>
+  <div class="button">
+    <!-- <img style="height: 20px;" src="assets/News.PNG"> -->
+    <button class="light-button" mat-raised-button routerLink="/home">Home</button> &nbsp;
+    <span matTooltip="Please Login to Access">
+    <button  [disabled]="isdisabled" mat-raised-button routerLink="/gallery">Gallery</button>
+    </span>
+    &nbsp;
+    <button mat-raised-button routerLink="/about">About</button>&nbsp;
+    <button mat-raised-button (click)="openDialog()">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="font-family: 'Times New Roman', Times, serif;"><strong>{{this.welcomeNote}}</strong></span>
+    <button *ngIf="!isdisabled" matTooltip="LogOut" style="padding-left: 28px;" mat-icon-button (click)="onLoggedout()" fxLayout.xs="column">
+      <mat-icon style="font-size: 34px;">exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<div class="footer">
+  <h1 style="text-align: center;font-size: 22px;"> Copyright © 2021 Bennett, Indian-HeadLines & Co. Ltd. All rights
+    reserved. For reprint rights: Indian Headlines Service</h1>
+</div>
+<ng-template #deviceStatusDialog>
+  <mat-dialog-content style="width:450px;overflow:auto">
+        <table>
+      <tr>
+        <td style="padding-left: 45%;font-size: 50px;color: darkturquoise;" colspan="2"><strong> Sign in</strong></td>
+      </tr><br>
+      <tr>
+        <td style="color: black;font-weight: bolder;padding-left: 25px;font-size: 25px;">
+          UserName
+        </td>
+        <td style="padding-left: 25px;">
+          <mat-form-field style="font-size: 16px;width: 226px;" appearance="outline">
+            <input [(ngModel)]="user" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+      <br>
+      <tr>
+        <td style="color: black;font-weight: bolder;padding-left: 25px;font-size: 25px;">
+          Password
+        </td>
+        <td style="padding-left: 25px">
+          <mat-form-field style="font-size: 16px;" appearance="outline">
+            <input [(ngModel)]="pass" [type]="hide ? 'text' : 'password'" matInput>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+        </td>
+      </tr>
+      <br>
+      <tr>
+        <td style="padding-left: 100px" colspan="2">
+          <button mat-raised-button style="background-color: green;font-size: 15px;" (click)="verifyCredentials()" >Login</button> &nbsp;
+          <button mat-raised-button style="background-color: red;color:black;" (click)="close()">Cancel</button>
+        </td>
+      </tr>
+    </table>
+    <br />
+  </mat-dialog-content>
+</ng-template>
